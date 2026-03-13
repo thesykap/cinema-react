@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+background-color: #1f1f1f;
+color: white;
+font-family: "poppins",sans-serif;
+margin: 0;
+padding: 0;
+}
+.container-header{
+  display: flex;
+  padding: 20px;
+  border-bottom: 2px solid color-mix(in srgb, #ffffff, transparent 80%);
+  justify-content: space-around;
+  padding: 20px;
+}
+.container-header div{
+    width: 40%;
+}
+.container-header h1{
+  margin: 0;
+  font-size: 20px ;
+}
+.container-header .search{
+  font-size: 20px;
+
+}
+.container-header .search input{
+  margin-left: 20px;
+  border-radius: 10px;
+  padding: 7px 10px;
+  border: 5px solid color-mix(in srgb, #ffffff, transparent 80%);
+  width: 50%;
+}
+.movie-container{
+  display: flex;
+  justify-content: space-between;
+}
+.movie-container ul{
+  padding: 10px;
+  list-style: none;
+  width: 45%;
+}
+.list-movies img{
+  width: 100px;
+  height: auto;
+  padding: 10px;
+}
+
+.detailsMovie{
+  padding: 10px 20px;
+  background-color: color-mix(in srgb, #ffffff, transparent 95%);
+  border: 5px solid color-mix(in srgb, #ffffff, transparent 50%);
+  border-radius: 20px;
+  width:40%;
+  font-family: "poppins", sans-serif;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.detailsMovie .movieImage{
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+   border-bottom: 2px solid white;
+}
+.detailsMovie .movieImage div{
+  width: 50%;
+}
+
+.detailsMovie h2{
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: JetBrains Mono, monospace;
+  margin-bottom: 0;
+}
+.detailsMovie span{
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+}
+.detailsMovie p{
+  font-size: 0.9rem;
+  font-style: italic;
+  font-family: JetBrains Mono, monospace;
+  margin: 0;
+}
+.detailsMovie img{
+  width: 150px;
+  border: 2px solid color-mix(in srgb, #ffffff, transparent 50%);
+  border-radius: 20px;
+}
+svg{
+ margin: 30px 0;
+}
+.etoile{
+  display: flex;
+}
+
