@@ -1,38 +1,75 @@
-import { useState } from "react";
+
 import Header from "./components/Header";
 import Main from "./components/Main";
 import MovieList from "./components/MovieList";
 import OurMovieList from "./components/OurMovieList";
 import DetailMovie from "./components/DetailMovie";
+import { useReducer } from "react";
 
 const KEY = "7d5c487c";
 
+const initialState= {
+  query : "",
+  movieItem : {},
+  isOpenDetail : false,
+  detailTitle : "",
+}
+
+function reducer(state, action){
+  switch (action.type){
+    case "setQuery" :
+      return{
+        ...state,
+        query : action.payload,
+      }
+    case "setMovieItem" :
+      return{
+        ...state,
+        movieItem : action.payload,
+      }
+    case "setIsOpenDetail" :
+      return{
+        ...state,
+        isOpenDetail : action.payload,
+      }
+    case "setDetailTitle" :
+      return{
+        ...state,
+        detailTitle : action.payload,
+      }
+    default : throw new Error("error");
+    
+  }
+}
+
 function App() {
-  const [Query, setQuery] = useState("");
-  const [movieItem, setMovieItem] = useState({});
-  const [isOpenDetail, setIsOpenDetail] = useState(false);
-  const [detailTitle, setDetailTitle] = useState("");
+  //const [query, setQuery] = useState("");
+  const[state, dispatch] = useReducer(reducer, initialState);
+  const{query, movieItem, isOpenDetail,detailTitle} = state;
+  //const [movieItem, setMovieItem] = useState({});
+  //const [isOpenDetail, setIsOpenDetail] = useState(false);
+  //const [detailTitle, setDetailTitle] = useState("");
   return (
     <div>
       <Header
-        Query={Query}
-        setQuery={setQuery}
-        setIsOpenDetail={setIsOpenDetail}
+        query={query}
+        dispatch={dispatch}
       />
       <Main>
         <OurMovieList
           movieItem={movieItem}
-          setIsOpenDetail={setIsOpenDetail}
-          setDetailTitle={setDetailTitle}
+          dispatch={dispatch}
+          //setDetailTitle={setDetailTitle}
         />
         {isOpenDetail ? (
           <DetailMovie KEY={KEY}
-          detailTitle={detailTitle}  />
+          detailTitle={detailTitle} 
+        />
         ) : (
           <MovieList
-            Query={Query}
+            query={query}
             movieItem={movieItem}
-            setMovieItem={setMovieItem}
+            dispatch={dispatch}
             KEY={KEY}
           />
         )}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SvgEtoile from "./SvgEtoile";
 
-function DetailMovie({ KEY , detailTitle}) {
+function DetailMovie({ KEY, detailTitle}) {
   const [detail, setDetail] = useState({});
   const [rating, setRating] = useState(0)
   useEffect(

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MovieElement from "./MovieElement";
 import Button from "./Button";
 
-function OurMovieList({movieItem, setIsOpenDetail, setDetailTitle}) {
+function OurMovieList({movieItem, dispatch,}) {
   const [ourMovie, setOurMovie] = useState([]);
 
   useEffect(function(){
@@ -11,13 +11,13 @@ function OurMovieList({movieItem, setIsOpenDetail, setDetailTitle}) {
 
   function handleDeleteMovie(index){
       setOurMovie(ourMovie.filter((movie, i, arr ) =>movie.imdbID !== arr[index].imdbID));
-      setIsOpenDetail(false);
+      dispatch({type : "setIsOpenDetail", payload : false});
   }
 
   function handleDetailMovie(index){
     const {Title} = ourMovie[index];
-    setDetailTitle(Title);
-    setIsOpenDetail(true);
+    dispatch({type : "setDetailTitle", payload: Title})
+    dispatch({type : "setIsOpenDetail", payload : true}); 
   }
 
   return (
